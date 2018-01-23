@@ -10,7 +10,7 @@ Things to do
 ---
 - Edit individual Project pages
 - Edit individual Project pages CSS
-- Edit Contact section
+- ~~Edit Contact section~~
 - Make top banner much more interesting
 - Edit collapsed navigation
 - Add parallax scrolling
