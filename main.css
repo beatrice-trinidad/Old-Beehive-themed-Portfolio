@@ -81,12 +81,11 @@ p {
   color: #D32F2F;
 }
 
-.contactColumn {
-  width: 33%;
+.halfColumn {
+  width: 50%;
   display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
 }
+
 
 
 /*** COLLAPSED NAVIGATION ***/
@@ -324,6 +323,7 @@ ul.tags li {
     display: inline-block;
     text-transform: uppercase;
     font-family: "Raleway", sans-serif;
+    padding-bottom: 10px;
 }
 
 ul.tags li.dev {
@@ -348,12 +348,20 @@ ul.tags li.ui-ux-design {
 }
 
 .exp-place {
-    font-family: 'Libre Baskerville', serif;
-    color: #404040;
-    font-weight: 400;
+   font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
     font-size: 1.0em;
+    letter-spacing: 5px;
     line-height: 1.0em;
-    letter-spacing: 3px;
+    font-weight: inherit;
+}
+
+.exp-links {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.0em;
+    letter-spacing: 5px;
+    line-height: 1.0em;
 }
 
 p.exp-desc {
@@ -622,22 +630,6 @@ nav li a:hover {
   color: #333;
 }
 
-@media all and (min-width: 1366px) {
-  .header {
-    display: block;
-  }
-  #hamburger {
-    display: none;
-  }
-}
-@media all and (max-width: 868px){
-  .header{
-    display: none;
-  }
-  #hamburger{
-    display: block;
-  }
-}
 
 .line {
   width: 100%;
@@ -657,8 +649,55 @@ nav li a:hover {
     word-wrap: break-word;
 }
 
-#contactContainerColumn {
-    
+.contactColumn {
+    width: 16%;
+    margin: 0 auto;
+}
+
+.contactColumn ul {
+    list-style-type: none;
+    padding: 0px;
+    display:table; margin:0 auto;
+}
+.contactColumn ul li {
+    margin: 0 20px 0 0;
+}
+.contactColumn ul a {
+    font-size: 20px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.10em;
+}
+
+.contactContainerLinks {
+    text-align: center;
+}
+
+ul.contactLinks {
+    list-style-type: none;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+ul.contactLinks li {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+
+ul.contactLinks li a {
+    margin-right: 30px;
+    padding: 2px;
+    color: black;
+    background: rgba(245,215,110,0.5);
+    transition: all linear .2s;
+    text-transform: uppercase;
+    margin-right: 30px;
 }
 
 #contactContainer > .line > .threeColumn2 > h2 {
@@ -671,14 +710,32 @@ nav li a:hover {
   position: relative;
 }
 
-@media all and (max-width: 780px) {
-
-  .contactColumn {
-    width: 100%;
-    margin-bottom: 30px;
-      
+@media all and (min-width: 1366px) {
+  .header {
+    display: block;
   }
-  .threeQuarterColumn, .quarterColumn {
+  #hamburger {
+    display: none;
+  }
+    .contactColumn {
+    width: 50%;
+    margin: 0 auto;
+}
+}
+@media all and (max-width: 868px){
+  .header{
+    display: none;
+  }
+  #hamburger{
+    display: block;
+  }
+}
+
+@media all and (max-width: 780px) {
+  .contactColumn {
+    width: 80%;     
+  }
+  .threeQuarterColumn, .quarterColumn, .halfColumn {
     width: 100%;
   }
   .threeQuarterColumn p {
@@ -693,10 +750,8 @@ nav li a:hover {
 }
 
 @media (max-width: 800px) {
+    .contactColumn {
+        width: 33%;     
+    }
   
 }
-
-@media (max-width: 415px) {
- 
-}
-
