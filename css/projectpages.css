@@ -1,0 +1,94 @@
+
+.whiteContainer {
+    padding: 20px;
+    background-color: #FFF;
+}
+
+#content {
+    margin-top: 35px;
+}
+
+/*** PROJECT DESCRIPTION ***/
+ul.project-tags {
+    list-style-type: none;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+ul.project-tags li {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+    padding-bottom: 10px;
+    margin-right: 35px;
+    text-align: center;
+}
+
+ul.project-tags li:last-child {
+    margin-right: 0px;
+}
+
+/*** BUTTON ***/
+.button {
+    margin-top: 20px;
+    margin-bottom: 20px!important;
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+	position:relative;
+	padding: 14px 0;
+    color: #fff;
+    text-decoration: none;
+    background-color: #f5d76e;
+	cursor: pointer;
+	font-size:. 9em;
+	text-transform: uppercase;
+	transition: color 0.4s, background-color 0.4s;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	display: inline-block;
+	line-height: 1em;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	width: 210px;
+    top: 50%;
+    left: 50%;
+	margin: 0 -125px;
+	width: 250px;
+}
+  .button:hover,
+  .button:focus {
+      transition: color 0.4s, background-color 0.4s;
+      color: #f5d76e;
+      background-color: #fff;
+      outline: 2px #f5d76e solid;
+  }
+
+
+/*** IMAGES****/
+img.desktop {
+    width: 65%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (max-width: 868px) {
+    #content {
+        padding-top: 0px;
+        margin-top: 0px;
+        top: 0px;
+    }
+    
+    ul.project-tags li {
+        margin-right: 0px;
+    }
+}

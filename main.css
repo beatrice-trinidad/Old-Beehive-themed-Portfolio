@@ -755,3 +755,8 @@ ul.contactLinks li a {
     }
   
 }
+
+/*** PROJECT PAGES ***/
+.tlt-website-banner {
+    background-image: url(/img/tlt-website-banner.png); background-size: cover; height: 400px; width: 100%; position: relative; 
+}
