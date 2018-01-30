@@ -1,11 +1,40 @@
+#content {
+    background-color: #fff;
+}
 
 .whiteContainer {
     padding: 20px;
     background-color: #FFF;
 }
 
+.whiteContainer a {
+    color: inherit;
+    background: rgba(245,215,110,0.5);
+    
+}
+
+.whiteContainer a:hover {
+    transition: all linear .2s;
+}
+.whiteContainer .button a {
+    color: #fff;
+    text-decoration: none;
+    transition: none;
+    background: none;
+}
+
+
+.whiteContainer .button a:hover {
+    background: none;
+    text-decoration: none;
+    transition: none;
+    color: #f5d76e;
+}
+
+
 #content {
     margin-top: 35px;
+    padding: 0px;
 }
 
 /*** PROJECT DESCRIPTION ***/
@@ -31,10 +60,12 @@ ul.project-tags li:last-child {
 
 /*** BUTTON ***/
 .button {
+    box-shadow: 0 0.2rem 0.5rem 0 rgba(0,0,0,.26);
     margin-top: 20px;
     margin-bottom: 20px!important;
     text-transform: uppercase;
     font-family: "Raleway", sans-serif;
+    font-weight: 600;
 	position:relative;
 	padding: 14px 0;
     color: #fff;
@@ -72,14 +103,13 @@ ul.project-tags li:last-child {
 
 
 /*** IMAGES****/
-img.desktop {
+img.center-img {
     width: 65%;
     height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
 
 @media (max-width: 868px) {
     #content {
@@ -92,3 +122,4 @@ img.desktop {
         margin-right: 0px;
     }
 }
+
