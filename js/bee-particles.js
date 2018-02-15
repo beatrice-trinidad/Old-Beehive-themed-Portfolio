@@ -119,7 +119,7 @@ var Stage = (function () {
 
 	var stage = document.getElementById('stage');
 
-	var addChild = function (thing) {
+	var addChild = nction (thing) {
 
 		stage.appendChild(thing.element);
 	};

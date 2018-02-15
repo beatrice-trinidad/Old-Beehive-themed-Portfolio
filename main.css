@@ -1,3 +1,282 @@
+/*** HEXAGON GRID ***/
+#hexGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: sans-serif;
+  list-style-type: none;
+}
+
+.whiteContainer ul#hexGrid {
+    margin-left: 0 !important;
+}
+
+.hex {
+  position: relative;
+  visibility:hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  transition: all 0.5s;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: all 0.5s;
+}
+.hex::after{
+  content:'';
+  display:block;
+  padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+}
+.hexIn{
+  position: absolute;
+  width:96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin: 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+      -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+          transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+    transition: all 0.5s;
+}
+.hexIn * {
+  position: absolute;
+  visibility: visible;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+.hexLink {
+    display:block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+        -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+            transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+}
+
+
+
+
+/*** HEX CONTENT ***/
+.hex img {
+  left: -100%;
+  right: -100%;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hexLink h1 {
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    line-height: 1.2em;
+    margin: 0;
+    opacity: 0;
+    color: #FFFFFF !important;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+}
+
+.hexgrid h1 {
+    color: #FFFFFF !important;
+    text-transform: capitalize;
+    text-align: center;
+    bottom: 50%;
+    padding-top:50%;
+    z-index: 1;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.hex h1:before, .hex h1:after {
+  display: inline-block;
+  margin: 0 0.5em;
+  width: 0.25em;
+  height: 0.03em;
+  background: #ffffff;
+  vertical-align: middle;
+  transition: all 0.3s;
+  text-align:center;
+}
+
+
+.img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.img:before, .img:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.img:before {
+  background: rgba(22, 103, 137, 0.3)
+}
+.img:after {
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.5), transparent);
+}
+
+/** Hover Effect **/
+
+.hexLink:hover h1, .hexLink:focus h1,
+.hexLink:hover p, .hexLink:focus p{
+    opacity: 1;
+    transition: 0.8s;
+}
+
+.hexIn:hover .img:before,
+.hexIn:hover .img:after,
+.hexIn:hover .hexLink {
+  opacity: 0.60;
+  background: #c56c3b;
+}
+
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+@media (min-width:1201px) { /* <- 5-4  hexagons per row */
+  #hexGrid{
+    padding-bottom: 4.4%
+  }
+  .hex {
+    width: 20%; /* = 100 / 5 */
+  }
+  .hex:nth-child(9n+6){ /* first hexagon of even rows */
+    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+  #hexGrid{
+    padding-bottom: 5.5%
+  }
+  .hex {
+    width: 25%; /* = 100 / 4 */
+  }
+  .hex:nth-child(7n+5){ /* first hexagon of even rows */
+    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+  #hexGrid{
+    padding-bottom: 7.4%
+  }
+  .hex {
+    width: 33.333%; /* = 100 / 3 */
+  }
+  .hex:nth-child(5n+4){ /* first hexagon of even rows */
+    margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+  #hexGrid{
+    padding-bottom: 11.2%
+  }
+  .hex {
+    width: 50%; /* = 100 / 3 */
+  }
+  .hex:nth-child(3n+3){ /* first hexagon of even rows */
+    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 400px) {
+    #hexGrid {
+        font-size: 13px;
+    }
+}
+
+
+
+/*** HEXAGON BANNER ***/
+#hexagonBannerContainer {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0 solid hsla(0,0%,89%,0);
+    margin-bottom: 0;
+    margin-top: 50px;
+    background: hsla(0,0%,100%,0);
+    background: linear-gradient(to right, rgba(255, 255, 255,1) 0%, rgba(248,228,158,1) 41%, rgba(225,152,69,1) 100%);
+    background-size: 400% 100%;
+    background-position: 0 0;
+    background-clip: content-box;
+    -webkit-animation: g 10s linear infinite;
+    animation: bgc 10s linear infinite;
+}
+
+@keyframes bgc {
+0% {   background-position: 0 0; }
+50% {  background-position: 100% 0; }
+100% { background-position: 0 0; }
+}
+
+.banner-hexagon {
+    fill: rgba(255,255,255,0);
+    -webkit-transition: fill 3000ms linear;
+    -moz-transition: fill 3000ms linear;
+    -o-transition: fill 3000ms linear;
+    -ms-transition: fill 3000ms linear;
+    transition: fill 3000ms linear;
+}
+
+.banner-hexagon:hover {
+    fill: rgba(255,255,255,0.6);
+    -webkit-transition: fill 1000ms linear;
+    -moz-transition: fill 1000ms linear;
+    -o-transition: fill 1000ms linear;
+    -ms-transition: fill 1000ms linear;
+    transition: fill 1000ms linear;
+}
+
+
+ h1.section-title{
+    display: table;
+    margin: 2% auto;
+    line-height: 40px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.25em;
+}
+
+
 /*** STANDARD STYLES ***/
 html {
   -webkit-font-smoothing: antialiased;
@@ -11,7 +290,7 @@ body {
 }
 
 a:-webkit-any-link {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 h1 {
@@ -31,13 +310,12 @@ h2 {
   font-size: 1.3em;
   margin-top: -10px;
 }
+
 p {
-  font-family: 'Libre Baskerville', serif;
-  color: #404040;
-  padding-left: 8%;
-  padding-right: 8%;
-    font-size: 16px;
-    line-height: 36px;
+    font-family: 'Cabin', sans-serif;
+    color: #404040;
+    font-size: 15px;
+    line-height: 2.0em;
 }
 
 .header {
@@ -52,7 +330,7 @@ p {
     z-index: 100;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    background-color: rgba(255, 255, 255, 0.9);  
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .sticky {
@@ -84,8 +362,6 @@ p {
   width: 50%;
   display: inline-block;
 }
-
-
 
 /*** COLLAPSED NAVIGATION ***/
 nav input {
@@ -133,7 +409,7 @@ nav label b i:nth-child(3) {
   top: 25px;
 }
 nav menu {
-  background: #e74c3c;
+  background: #f5d76e;
   width: 100%;
   height: 120vh;
   display: none;
@@ -223,18 +499,17 @@ nav #nav:checked ~ menu {
     -ms-flex-align: center;
     align-items: center;
     padding: 20px;
+    margin-top: 60px;
 }
 
 .header-title {
-    letter-spacing: 0;
-    text-transform: none;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
     margin: 0 auto;
-    margin-top: 40px;
     margin-bottom: 40px;
-    font-size: 3em;
+    font-size: 7vw;
     position: relative;
     display: table;
-    padding: 0 10px;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     color: #333;
@@ -243,119 +518,103 @@ nav #nav:checked ~ menu {
 
 .header-text {
     margin: auto 0;
-    margin-bottom: 40px;
     text-align: center;
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
-    font-size: 20px;
     color: #000;
+    font-weight: 300;
+    z-index: 1;
+    font-size: 2.3vw;
+    letter-spacing: 0.3em;
 }
 
 #content {
-    padding: 20px 0px;
+    padding: 20px 0px 0px;
     position: absolute;
     width: 100%;
     z-index: 10;
 }
 
 /*** ABOUT ***/
-#aboutContainer {
-    padding: 20px;
+.white {
+    padding: 2% 5%;
     background-color: #FFF;
 }
 
-#aboutContainer ul {
-    margin-left: 8%;
-    font-family: 'Libre Baskerville', serif;
+.white .whiteContainertext {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.white ul {
+    margin-left: 5%;
+    font-family: 'Cabin', sans-serif;
     color: #404040;
-    padding-left: 8%;
-    padding-right: 8%;
-    line-height: 36px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 15px;
+    line-height: 2.0em;
 }
 
-#aboutContainer a {
+.white a {
     text-decoration: none;
-    color: black;
-    background: rgba(245,215,110,0.5);
-    transition: all linear .2s;
+    color: #f5d76e;
 }
 
-#aboutContainer a:hover {
-    background: #f5d76e;
-    text-decoration: none;
+.white a:hover {
+    font-weight: 600;
 }
 
 /*** EXPERIENCE ***/
-
-#expContainer {
-    padding: 20px;
-    background-color: #fff;
-
-}
-
 .exp-item {
-    padding-left: 8%;
-    padding-right: 8%;
-    margin-top: 36px;
+    margin-bottom: 5%;
 }
 
-.exp-item a {
-    text-decoration: none;
-    color: black;
-    background: rgba(245,215,110,0.5);
-    transition: all linear .2s;
-    text-transform: uppercase;
+.exp-item a{
     margin-right: 30px;
-}
-
-.exp-item a:hover {
-    background: #f5d76e;
-    text-decoration: none;
 }
 
 ul.tags {
     list-style-type: none;
-    padding: 0px;
+    padding: 0px!important;
+    margin-left: unset!important;
 }
 
 ul.tags li {
     display: inline-block;
     text-transform: uppercase;
     font-family: "Raleway", sans-serif;
-    padding-bottom: 10px;
+    padding: 0px 2px;
 }
 
-ul.tags li.dev {
+ul.tags li.dev{
     background-color: #EDBC49;
-    padding: 2px;
     color: #8e680e;
 }
 
-ul.tags li.ui-ux-design {
-    background-color: #ff7878;
-    padding: 2px;
-    color: #930000;
+ul.tags li.design {
+    background-color: #BEDCC4;
+    color: #2f5838;
 }
 
+ul.tags li.comm {
+    background-color: #cbbaba;
+    color: #624b4a;
+}
 
-
-.exp-title {
+h2.exp-title {
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     font-size: 1.0em;
     letter-spacing: 5px;
-    line-height: 1.0em;
     font-weight: 600;
-    padding-bottom: 5px;
-    
 }
 
-.exp-place {
-   font-family: "Raleway", sans-serif;
+h3.exp-place {
+    font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     font-size: 1.0em;
-    letter-spacing: 5px;
-    line-height: 1.0em;
+    letter-spacing: 2px;
     font-weight: inherit;
 }
 
@@ -365,12 +624,10 @@ ul.tags li.ui-ux-design {
     font-size: 1.0em;
     letter-spacing: 5px;
     line-height: 1.0em;
+    padding: none;
 }
 
-p.exp-desc {
-    padding-right: initial;
-    padding-left: initial;
-}
+
 
 /*** PROJECTS ***/
 
@@ -601,15 +858,15 @@ p.exp-desc {
 
 }
 .navlink{
-    color: #f5d76e;
-    font-weight: 800;
+    color: #404040;
+    font-weight: 400;
 }
 nav {
   width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 nav li {
   display: inline-block;
@@ -620,17 +877,17 @@ nav li:not(:first-child) {
   margin-left: 5em;
 }
 nav li a {
-  font-weight: 400;
-  color: #fefefe;
+  color: #c0c0c0;
   font-size: 1.2em;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 nav li a:hover {
-  color: #e74c3c;
+  color: #404040;
 }
 .index> nav > li > a:hover {
-  color: #333;
+    color: #F8E6AC;
+    font-weight: 500;
 }
 
 
@@ -646,36 +903,7 @@ nav li a:hover {
 
 
 /*** CONTACT ***/
-#contactContainer {
-    padding: 20px;
-    background-color: #FFF;
-    word-wrap: break-word;
-}
-
-.contactColumn {
-    width: 16%;
-    margin: 0 auto;
-}
-
-.contactColumn ul {
-    list-style-type: none;
-    padding: 0px;
-    display:table; margin:0 auto;
-}
-.contactColumn ul li {
-    margin: 0 20px 0 0;
-}
-.contactColumn ul a {
-    font-size: 20px;
-    font-family: "Raleway", sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: #333;
-    text-align: center;
-    letter-spacing: 0.10em;
-}
-
-.contactContainerLinks {
+.contactLinks {
     text-align: center;
 }
 
@@ -693,17 +921,15 @@ ul.contactLinks li {
     font-weight: 300;
 }
 
-ul.contactLinks li a {
-    margin-right: 30px;
-    padding: 2px;
-    color: black;
-    background: rgba(245,215,110,0.5);
-    transition: all linear .2s;
-    text-transform: uppercase;
+div#contactContainerColumn a {
+    color: #c0c0c0;
     margin-right: 30px;
 }
 
-
+div#contactContainerColumn a:hover {
+    color: #000;
+    font-weight: 300;
+}
 
 @media all and (min-width: 1366px) {
   .header {
@@ -712,10 +938,7 @@ ul.contactLinks li a {
   #hamburger {
     display: none;
   }
-    .contactColumn {
-    width: 50%;
-    margin: 0 auto;
-}
+
 }
 @media all and (max-width: 868px){
   .header{
@@ -730,12 +953,14 @@ ul.contactLinks li a {
     width: 100%;
     padding-bottom: 8px;
     }
+    
+    #hexagonBannerContainer {
+        margin-top: 0px;
+    }
 }
 
 @media all and (max-width: 780px) {
-  .contactColumn {
-    width: 80%;
-  }
+
   .threeQuarterColumn, .quarterColumn, .halfColumn {
     width: 100%;
   }
@@ -751,45 +976,5 @@ ul.contactLinks li a {
 }
 
 @media (max-width: 800px) {
-    .contactColumn {
-        width: 33%;
-    }
 
-}
-
-
-h1, h2 { margin: 0; padding: 0; }
-
-#stage {
-	width: 100%;
-	height: 100%;
-	background-image: url("https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/fc/3021740-poster-1280-open-source-honey-bee-hive.jpg");
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	left: 0;
-	z-index: 1;
-}
-
-#text {
-	color: #fff;
-	position: absolute;
-	right: 50px;
-	bottom: 50px;
-	z-index: 2;
-	font-family: Arial, Helvetica;
-	font-weight: normal;
-	text-shadow: 0 1px 2px rgba(0,0,0,.6);
-	font-size: 2em;
-}
-
-h1 {
-	letter-spacing: -.05em;
-	font-size: 1em;
-  color: black;
-}
-
-h2 {
-	letter-spacing: -.005em;
-	font-size: .5em;
 }
