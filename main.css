@@ -1,298 +1,16 @@
-/*** HEXAGON GRID ***/
-#hexGrid {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  margin: 0 auto;
-  overflow: hidden;
-  font-family: sans-serif;
-  list-style-type: none;
-}
-
-.whiteContainer ul#hexGrid {
-    margin-left: 0 !important;
-}
-
-.hex {
-  position: relative;
-  visibility:hidden;
-  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
-  transition: all 0.5s;
-  backface-visibility: hidden;
-  will-change: transform;
-  transition: all 0.5s;
-}
-.hex::after{
-  content:'';
-  display:block;
-  padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
-}
-.hexIn{
-  position: absolute;
-  width:96%;
-  padding-bottom: 110.851%; /* =  width / sin(60) */
-  margin: 2%;
-  overflow: hidden;
-  visibility: hidden;
-  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
-  -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
-      -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
-          transform: rotate3d(0,0,1,-60deg) skewY(30deg);
-    transition: all 0.5s;
-}
-.hexIn * {
-  position: absolute;
-  visibility: visible;
-  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
-}
-.hexLink {
-    display:block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: #fff;
-    overflow: hidden;
-    -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
-        -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
-            transform: skewY(-30deg) rotate3d(0,0,1,60deg);
-}
-
-
-
-
-/*** HEX CONTENT ***/
-.hex img {
-  left: -100%;
-  right: -100%;
-  width: auto;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.hexLink h1 {
-    width: 100%;
-    padding: 0 5%;
-    box-sizing: border-box;
-    line-height: 1.2em;
-    margin: 0;
-    opacity: 0;
-    color: #FFFFFF !important;
-    font-family: "Raleway", sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-}
-
-.hexgrid h1 {
-    color: #FFFFFF !important;
-    text-transform: capitalize;
-    text-align: center;
-    bottom: 50%;
-    padding-top:50%;
-    z-index: 1;
-    font-family: "Raleway", sans-serif;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.hex h1:before, .hex h1:after {
-  display: inline-block;
-  margin: 0 0.5em;
-  width: 0.25em;
-  height: 0.03em;
-  background: #ffffff;
-  vertical-align: middle;
-  transition: all 0.3s;
-  text-align:center;
-}
-
-
-.img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-position: center center;
-  background-size: cover;
-  overflow: hidden;
--webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-.img:before, .img:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.img:before {
-  background: rgba(22, 103, 137, 0.3)
-}
-.img:after {
-  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.5), transparent);
-}
-
-/** Hover Effect **/
-
-.hexLink:hover h1, .hexLink:focus h1,
-.hexLink:hover p, .hexLink:focus p{
-    opacity: 1;
-    transition: 0.8s;
-}
-
-.hexIn:hover .img:before,
-.hexIn:hover .img:after,
-.hexIn:hover .hexLink {
-  opacity: 0.60;
-  background: #c56c3b;
-}
-
-
-/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
-@media (min-width:1201px) { /* <- 5-4  hexagons per row */
-  #hexGrid{
-    padding-bottom: 4.4%
-  }
-  .hex {
-    width: 20%; /* = 100 / 5 */
-  }
-  .hex:nth-child(9n+6){ /* first hexagon of even rows */
-    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-
-@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
-  #hexGrid{
-    padding-bottom: 5.5%
-  }
-  .hex {
-    width: 25%; /* = 100 / 4 */
-  }
-  .hex:nth-child(7n+5){ /* first hexagon of even rows */
-    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-
-@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
-  #hexGrid{
-    padding-bottom: 7.4%
-  }
-  .hex {
-    width: 33.333%; /* = 100 / 3 */
-  }
-  .hex:nth-child(5n+4){ /* first hexagon of even rows */
-    margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-
-@media (max-width: 600px) { /* <- 2-1  hexagons per row */
-  #hexGrid{
-    padding-bottom: 11.2%
-  }
-  .hex {
-    width: 50%; /* = 100 / 3 */
-  }
-  .hex:nth-child(3n+3){ /* first hexagon of even rows */
-    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
-  }
-}
-
-@media (max-width: 400px) {
-    #hexGrid {
-        font-size: 13px;
-    }
-}
-
-
-
-/*** HEXAGON BANNER ***/
-#hexagonBannerContainer {
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    min-height: 420px;
-    border: 0 solid hsla(0,0%,89%,0);
-    margin-bottom: 0;
-    margin-top: 50px;
-    background: hsla(0,0%,100%,0);
-    background: linear-gradient(to right, rgba(255, 255, 255,1) 0%, rgba(248,228,158,1) 41%, rgba(225,152,69,1) 100%);
-    background-size: 400% 100%;
-    background-position: 0 0;
-    background-clip: content-box;
-    -webkit-animation: g 10s linear infinite;
-    animation: bgc 10s linear infinite;
-}
-
-@keyframes bgc {
-0% {   background-position: 0 0; }
-50% {  background-position: 100% 0; }
-100% { background-position: 0 0; }
-}
-
-.banner-hexagon {
-    fill: rgba(255,255,255,0);
-    -webkit-transition: fill 3000ms linear;
-    -moz-transition: fill 3000ms linear;
-    -o-transition: fill 3000ms linear;
-    -ms-transition: fill 3000ms linear;
-    transition: fill 3000ms linear;
-}
-
-.banner-hexagon:hover {
-    fill: rgba(255,255,255,0.6);
-    -webkit-transition: fill 1000ms linear;
-    -moz-transition: fill 1000ms linear;
-    -o-transition: fill 1000ms linear;
-    -ms-transition: fill 1000ms linear;
-    transition: fill 1000ms linear;
-}
-
-
- h1.section-title{
-    display: table;
-    margin: 2% auto;
-    line-height: 40px;
-    font-size: 24px;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: #333;
-    text-align: center;
-    letter-spacing: 0.25em;
-}
-
-
-/*** STANDARD STYLES ***/
+/***** STANDARD STYLES *****/
 html {
   -webkit-font-smoothing: antialiased;
 }
-
 body {
     background-color: #eee;
     overflow-x: hidden;
     margin: 0px;
 
 }
-
 a:-webkit-any-link {
   text-decoration: none;
 }
-
 h1 {
     font-size: 24px;
     font-family: "Raleway", sans-serif;
@@ -302,7 +20,6 @@ h1 {
     text-align: center;
     letter-spacing: 0.25em;
 }
-
 h2 {
   font-family: "MontSerat", sans-serif;
   font-weight: 400;
@@ -310,14 +27,12 @@ h2 {
   font-size: 1.3em;
   margin-top: -10px;
 }
-
 p {
     font-family: 'Cabin', sans-serif;
     color: #404040;
     font-size: 15px;
     line-height: 2.0em;
 }
-
 .header {
     position: fixed;
     top: 0px;
@@ -332,37 +47,10 @@ p {
     transition: all 0.5s ease;
     background-color: rgba(255, 255, 255, 0.9);
 }
-
 .sticky {
   opacity: 1;
   top: 0px;
 }
-
-/*** COLUMNS ***/
-.quarterColumn {
-  width: 24%;
-  display: inline-block;
-}
-.threeQuarterColumn {
-  width: 75%;
-  display: inline-block;
-}
-.threeQuarterColumn p {
-  margin-top: 0 !important;
-  position: relative;
-  text-align: left;
-    font-size: 16px;
-}
-.threeQuarterColumn p a {
-  font-weight: 400;
-  color: #D32F2F;
-}
-
-.halfColumn {
-  width: 50%;
-  display: inline-block;
-}
-
 /*** COLLAPSED NAVIGATION ***/
 nav input {
   display: none;
@@ -471,7 +159,48 @@ nav #nav:checked ~ menu {
   display: block;
 }
 
-/*** HEADER ***/
+/***** HEXAGON BANNER *****/
+#hexagonBannerContainer {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0 solid hsla(0,0%,89%,0);
+    margin-bottom: 0;
+    margin-top: 50px;
+    background: hsla(0,0%,100%,0);
+    background: linear-gradient(to right, rgba(255, 255, 255,1) 0%, rgba(248,228,158,1) 41%, rgba(225,152,69,1) 100%);
+    background-size: 400% 100%;
+    background-position: 0 0;
+    background-clip: content-box;
+    -webkit-animation: g 10s linear infinite;
+    animation: bgc 10s linear infinite;
+}
+@keyframes bgc {
+0% {   background-position: 0 0; }
+50% {  background-position: 100% 0; }
+100% { background-position: 0 0; }
+}
+.banner-hexagon {
+    fill: rgba(255,255,255,0);
+    -webkit-transition: fill 3000ms linear;
+    -moz-transition: fill 3000ms linear;
+    -o-transition: fill 3000ms linear;
+    -ms-transition: fill 3000ms linear;
+    transition: fill 3000ms linear;
+}
+.banner-hexagon:hover {
+    fill: rgba(255,255,255,0.6);
+    -webkit-transition: fill 1000ms linear;
+    -moz-transition: fill 1000ms linear;
+    -o-transition: fill 1000ms linear;
+    -ms-transition: fill 1000ms linear;
+    transition: fill 1000ms linear;
+}
+
+/***** HEADER *****/
 .header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -521,7 +250,7 @@ nav #nav:checked ~ menu {
     text-align: center;
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
-    color: #000;
+    color: #404040;
     font-weight: 300;
     z-index: 1;
     font-size: 2.3vw;
@@ -535,7 +264,7 @@ nav #nav:checked ~ menu {
     z-index: 10;
 }
 
-/*** ABOUT ***/
+/*** WHITE SECTION ***/
 .white {
     padding: 2% 5%;
     background-color: #FFF;
@@ -558,11 +287,273 @@ nav #nav:checked ~ menu {
 
 .white a {
     text-decoration: none;
-    color: #f5d76e;
+    color: #4aafe8;
 }
 
 .white a:hover {
     font-weight: 600;
+}
+
+ h1.section-title{
+    display: table;
+    margin: 2% auto;
+    line-height: 40px;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.25em;
+}
+
+/*** BUTTON ***/
+.button {
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+	position:relative;
+	padding: 15px 0;
+    color: #fff;
+    background-color: #f5d76e;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: color 0.4s, background-color 0.4s;
+	display: inline-block;
+	line-height: 1em;
+	text-align: center;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    top: 50%;
+    left: 50%;
+	margin: 10px 0px -125px -125px;
+	width: 250px;
+}
+  .button:hover,
+  .button:focus {
+      transition: color 0.4s, background-color 0.4s;
+      color: #fff;
+      font-weight: 500;
+    outline: 1px #f5d76e solid;
+    color: #f5d76e;
+    background-color: #fff;
+  }
+
+/***** HEXAGON GRID *****/
+#hexGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: sans-serif;
+  list-style-type: none;
+}
+
+.whiteContainer ul#hexGrid {
+    margin-left: 0 !important;
+}
+
+.hex {
+  position: relative;
+  visibility:hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  transition: all 0.5s;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: all 0.5s;
+}
+
+.hex::after{
+  content:'';
+  display:block;
+  padding-bottom: 86.602%;  /* =  100 / tan(60) * 1.5 */
+}
+
+.hexIn{
+  position: absolute;
+  width:96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin: 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+      -ms-transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+          transform: rotate3d(0,0,1,-60deg) skewY(30deg);
+    transition: all 0.5s;
+}
+
+.hexIn * {
+  position: absolute;
+  visibility: visible;
+  outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+}
+
+.hexLink {
+    display:block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+        -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+            transform: skewY(-30deg) rotate3d(0,0,1,60deg);
+}
+
+/*** Hexagon Content ***/
+.hex img {
+  left: -100%;
+  right: -100%;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hexLink h1 {
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    line-height: 1.2em;
+    margin: 0;
+    opacity: 0;
+    color: #FFFFFF !important;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hexgrid h1 {
+    color: #FFFFFF !important;
+    text-transform: capitalize;
+    text-align: center;
+    bottom: 50%;
+    padding-top:50%;
+    z-index: 1;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.hex h1:before, .hex h1:after {
+  display: inline-block;
+  margin: 0 0.5em;
+  width: 0.25em;
+  height: 0.03em;
+  background: #ffffff;
+  vertical-align: middle;
+  transition: all 0.3s;
+  text-align:center;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.img:before, .img:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.img:before {
+  background: rgba(22, 103, 137, 0.3)
+}
+.img:after {
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.5), transparent);
+}
+
+/** Hover Effect **/
+.hexLink:hover h1, .hexLink:focus h1,
+.hexLink:hover p, .hexLink:focus p{
+    opacity: 1;
+    transition: 0.8s;
+}
+
+.hexIn:hover .img:before,
+.hexIn:hover .img:after,
+.hexIn:hover .hexLink {
+  opacity: 0.60;
+  background: #c56c3b;
+}
+
+/*** Hexagon Sizing & Even Row Identation ***/
+@media (min-width:1201px) { /* <- 5-4  hexagons per row */
+  #hexGrid{
+    padding-bottom: 4.4%
+  }
+  .hex {
+    width: 20%; /* = 100 / 5 */
+  }
+  .hex:nth-child(9n+6){ /* first hexagon of even rows */
+    margin-left:10%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+  #hexGrid{
+    padding-bottom: 5.5%
+  }
+  .hex {
+    width: 25%; /* = 100 / 4 */
+  }
+  .hex:nth-child(7n+5){ /* first hexagon of even rows */
+    margin-left:12.5%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+  #hexGrid{
+    padding-bottom: 7.4%
+  }
+  .hex {
+    width: 33.333%; /* = 100 / 3 */
+  }
+  .hex:nth-child(5n+4){ /* first hexagon of even rows */
+    margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+  #hexGrid{
+    padding-bottom: 11.2%
+  }
+  .hex {
+    width: 50%; /* = 100 / 3 */
+  }
+  .hex:nth-child(3n+3){ /* first hexagon of even rows */
+    margin-left:25%;  /* = width of .hex / 2  to indent even rows */
+  }
+}
+
+@media (max-width: 400px) {
+    #hexGrid {
+        font-size: 13px;
+    }
 }
 
 /*** EXPERIENCE ***/
@@ -885,8 +876,8 @@ nav li a {
 nav li a:hover {
   color: #404040;
 }
-.index> nav > li > a:hover {
-    color: #F8E6AC;
+.index > nav > li > a:hover {
+    color: #4aafe8;
     font-weight: 500;
 }
 
@@ -927,7 +918,7 @@ div#contactContainerColumn a {
 }
 
 div#contactContainerColumn a:hover {
-    color: #000;
+    color: #4aafe8;
     font-weight: 300;
 }
 
