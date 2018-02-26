@@ -1,40 +1,33 @@
+/*** CONTENT ***/
 #content {
-    background-color: #fff;
+    margin-top: 20px;
 }
 
-.whiteContainer {
-    padding: 20px;
-    background-color: #FFF;
+/*** HEADINGS ***/
+h1.section-title {
+    font-weight: 600;
 }
 
-.whiteContainer a {
-    color: inherit;
-    background: rgba(245,215,110,0.5);
-    
+h2 {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.25em;
 }
 
-.whiteContainer a:hover {
-    transition: all linear .2s;
-}
-.whiteContainer .button a {
-    color: #fff;
-    text-decoration: none;
-    transition: none;
-    background: none;
+h3.sketch {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 
-.whiteContainer .button a:hover {
-    background: none;
-    text-decoration: none;
-    transition: none;
-    color: #f5d76e;
-}
 
-
-#content {
-    margin-top: 35px;
-    padding: 0px;
+h2.projectdesc {
+    font-family: "Cabin", serif;
+    text-align: center;
+    font-weight: 100;
+    color: #404040;
+    font-size: 1.25em;
 }
 
 /*** PROJECT DESCRIPTION ***/
@@ -58,53 +51,9 @@ ul.project-tags li:last-child {
     margin-right: 0px;
 }
 
-/*** BUTTON ***/
-.button {
-    box-shadow: 0 0.2rem 0.5rem 0 rgba(0,0,0,.26);
-    margin-top: 20px;
-    margin-bottom: 20px!important;
-    text-transform: uppercase;
-    font-family: "Raleway", sans-serif;
-    font-weight: 600;
-	position:relative;
-	padding: 14px 0;
-    color: #fff;
-    text-decoration: none;
-    background-color: #f5d76e;
-	cursor: pointer;
-	font-size:. 9em;
-	text-transform: uppercase;
-	transition: color 0.4s, background-color 0.4s;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	display: inline-block;
-	line-height: 1em;
-	outline: none;
-	text-align: center;
-	text-decoration: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	width: 210px;
-    top: 50%;
-    left: 50%;
-	margin: 0 -125px;
-	width: 250px;
-}
-  .button:hover,
-  .button:focus {
-      transition: color 0.4s, background-color 0.4s;
-      color: #f5d76e;
-      background-color: #fff;
-      outline: 2px #f5d76e solid;
-  }
-
-
 /*** IMAGES****/
 img.center-img {
-    width: 65%;
+    width: 100%;
     height: auto;
     display: block;
     margin-left: auto;
