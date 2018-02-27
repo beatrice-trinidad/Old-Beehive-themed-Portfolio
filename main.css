@@ -6,7 +6,6 @@ body {
     background-color: #eee;
     overflow-x: hidden;
     margin: 0px;
-
 }
 
 .threeColumn {
@@ -657,8 +656,17 @@ nav li a:hover {
   overflow: hidden;
 }
 
+/***** FOOTER*****/
+p.footer {
+  color: #c0c0c0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  padding-bottom: 10px;
+  font-weight: 300;
+}
 
-/*** CONTACT ***/
+/***** CONTACT *****/
 .contactLinks {
     text-align: center;
 }
