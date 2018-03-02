@@ -1,3 +1,41 @@
+/* Grid */
+
+.column {
+  flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .column {
+    flex: 1;
+  }
+  ._25 {
+    flex: 2.5;
+  }
+  ._5 {
+    flex: 5;
+  }
+}
+/* Style */
+
+
+.column {
+padding-right: 15px;
+  margin: 5px 0;
+}
+
+
+.column:last-child {
+    padding-right: none;
+}
+
+
+
+
 /***** STANDARD STYLES *****/
 html {
   -webkit-font-smoothing: antialiased;
@@ -8,6 +46,11 @@ body {
     margin: 0px;
 }
 
+.halfColumn {
+  width: 50% !important;
+  float: left !important;
+}
+
 .threeColumn {
   width: 33.33333%;
   float: left;
@@ -16,6 +59,7 @@ body {
 a:-webkit-any-link {
   text-decoration: none;
 }
+
 h1 {
     font-size: 24px;
     font-family: "Raleway", sans-serif;
@@ -261,7 +305,7 @@ nav #nav:checked ~ menu {
 
 /*** WHITE SECTION ***/
 .white {
-    padding: 2% 5%;
+    padding: 2% 10%;
     background-color: #FFF;
 }
 .white .whiteContainertext {
