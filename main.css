@@ -46,15 +46,7 @@ body {
     margin: 0px;
 }
 
-.halfColumn {
-  width: 50% !important;
-  float: left !important;
-}
 
-.threeColumn {
-  width: 33.33333%;
-  float: left;
-}
 
 a:-webkit-any-link {
   text-decoration: none;
