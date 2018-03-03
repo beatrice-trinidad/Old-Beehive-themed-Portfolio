@@ -37,13 +37,21 @@ h2.projectdesc {
     font-size: 1.25em;
 }
 
+h4.projectdesc {
+    font-family: "Cabin", serif;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.0em;
+    color: #c0c0c0;
+}
+
 h2.center {
     margin-top: 5%;
 }
 
 h3.center{
     font-family: "Raleway", sans-serif;
-    font-size: 1.25em;
+    font-size: 1.1em;
     text-transform: uppercase;
     text-align: center;
     margin-top: 5%;
