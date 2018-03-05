@@ -97,6 +97,14 @@ img.center-img {
     margin: 15px auto 15px auto;
 }
 
+img.center-img-small{
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 15px auto 15px auto;
+}
+
+
 img.center-img.sketch {
     height: 80%;
 }
