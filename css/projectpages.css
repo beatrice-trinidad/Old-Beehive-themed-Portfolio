@@ -25,7 +25,7 @@ h1.section-title {
 
 h2 {
     font-family: "Raleway", sans-serif;
-    font-size: 1.25em;
+    font-size: 1.5em;
     margin-top: 2%;
     text-align: center;
 }
@@ -87,6 +87,11 @@ ul.project-tags li {
 
 ul.project-tags li:last-child {
     margin-right: 0px;
+}
+
+p.quote {
+    color: #1a8ccc;
+    font-size: 1.0em;
 }
 
 /*** IMAGES****/

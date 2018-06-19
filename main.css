@@ -335,6 +335,18 @@ nav #nav:checked ~ menu {
     letter-spacing: 0.25em;
 }
 
+h2.caption{
+    /*font-family: "Cabin", serif;*/
+    text-align: center;
+    font-weight: 100;
+    font-size: 0.10em;
+    color: #c0c0c0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    z-index: 1;
+    font-size: 2.3vw;
+}
+
 /*** BUTTON ***/
 .button {
     text-transform: uppercase;
@@ -449,6 +461,24 @@ nav #nav:checked ~ menu {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.hexLink h2 {
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    line-height: 1.2em;
+    margin: 0;
+    opacity: 0;
+    color: #FFFFFF !important;
+    font-family: "Raleway", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .hexgrid h1 {
     color: #FFFFFF !important;
     text-transform: capitalize;
