@@ -4,7 +4,7 @@ Simple bee-themed portfolio put together. Forever changing and the code is not p
 
 Cool Stuff
 ---
-- No front-end framework used! I could have used a template or made a portfolio on SquareSpace, but I really wanted to take on the challenge of making a responsie and clean design with plain HTML and CSS.
+- No front-end framework used! I could have used a template or made a portfolio on SquareSpace, but I really wanted to take on the challenge of making a responsive and clean design with plain HTML and CSS.
 - Purely SVG-made honeycomb banner
 
 
